@@ -2,24 +2,21 @@ package projet.lafactory.controller;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-
-import projet.lafactory.personne.Admin;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class AdminController {	
-	@GetMapping({ "/", "/home" })
-	public String home(HttpSession session) {
+@RequestMapping("/login")
+public class LoginController {	
+	@GetMapping
+	public String login(HttpSession session) {
 		//if (session.getAttribute("utilisateur") == null) {
 			//return "login";
 		//}
 		
-		return "home";
+		return "login";
 	}
 	
 	
@@ -40,13 +37,13 @@ public class AdminController {
 	
 	
 	@GetMapping("/logout")
-	public String logout(HttpSession session) {
+	public String logou(HttpSession session) {
 		session.invalidate();
 		return "redirect:home";
 	}	
 	
 	@ModelAttribute("isPageHomeActive")
-	public boolean isPageHomeActive() {
+	public boolean isPageHomeActiv() {
 		return true;
 	}
 }

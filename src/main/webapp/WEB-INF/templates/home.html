@@ -5,14 +5,18 @@
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	</head>
-	
+
+  </nav>
+  <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="login.html">Accès admin</a>
+</nav>
 	
 	<body>
-		<div th:replace="navigation::nav"></div>
+		<!--<div th:replace="navigation::nav"></div>-->
 		
 		<div class="container">
 			<h1>Accueil</h1>
-			<p>Bonjour [[${ session.utilisateur.username }]] !</p>
+			<p>Ici on va mettre tous les trucs pour le visiteur
 		</div>
 	</body>
 </html>
