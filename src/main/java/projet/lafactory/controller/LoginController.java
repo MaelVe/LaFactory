@@ -1,11 +1,18 @@
 package projet.lafactory.controller;
 
+import java.util.Enumeration;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import projet.lafactory.model.Admin;
 
 @Controller
 @RequestMapping("/login")
@@ -21,18 +28,22 @@ public class LoginController {
 	
 	
 	
-	//@PostMapping({ "/", "/home" })
-	//public String login(@ModelAttribute Admin admin, HttpSession session, Model model) {
-		//admin = this.daoAdmin.auth(admin.getUsername(), admin.getPassword());
+	@PostMapping()
+	public String login(@ModelAttribute Admin admin, HttpServletRequest session, Model model) {
+		admin.creationAdmin();
 		
-		//if (admin == null) {
-			//model.addAttribute("error", true);
-			//return "login";
-		//}
+		String username = session.getParameter("username");
+		String password = session.getParameter("password");
 		
-		//session.setAttribute("utilisateur", admin);
-		//return "redirect:home";
-	//}
+		String nameAdmin = admin.getMail();
+	
+		if(admin.getMail().equals(username) && admin.getPassword().equals(password)) {
+			return "redirect:administration";
+			
+		}
+		
+		return "redirect:home";
+	}
 	
 	
 	

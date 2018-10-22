@@ -9,16 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import projet.lafactory.personne.Admin;
+import projet.lafactory.model.Admin;
 
 @Controller
-public class AdminController {	
+public class HomeController {	
 	@GetMapping({ "/", "/home" })
 	public String home(HttpSession session) {
-		//if (session.getAttribute("utilisateur") == null) {
-			//return "login";
-		//}
-		
+
+				
 		return "home";
 	}
 	

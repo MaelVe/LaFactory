@@ -26,7 +26,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 @Configuration
 @ComponentScan({ "projet.lafactory.controller" })
 @EnableWebMvc
-//@EnableJpaRepositories("fr.tetris.dao")
+//@EnableJpaRepositories("projet.lafactory.dao")
 public class WebConfig implements WebMvcConfigurer {
 	@Autowired
 	private RequestMappingHandlerAdapter requestMappingHandlerAdapter;
@@ -62,69 +62,66 @@ public class WebConfig implements WebMvcConfigurer {
 		return templateResolver;
 	}
 
-	@Bean
-	public SpringTemplateEngine templateEngine(SpringResourceTemplateResolver templateResolver) {
-		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-
-		templateEngine.setTemplateResolver(templateResolver);
-		templateEngine.setEnableSpringELCompiler(true);
-
-		return templateEngine;
-	}
-
-	@Bean
-	public ThymeleafViewResolver viewResolver(SpringTemplateEngine templateEngine) {
-		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-
-		viewResolver.setTemplateEngine(templateEngine);
-		return viewResolver;
-	}
+//	@Bean
+//	public SpringTemplateEngine templateEngine(SpringResourceTemplateResolver templateResolver) {
+//		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+//
+//		templateEngine.setTemplateResolver(templateResolver);
+//		templateEngine.setEnableSpringELCompiler(true);
+//
+//		return templateEngine;
+//	}
+//
+//	@Bean
+//	public ThymeleafViewResolver viewResolver(SpringTemplateEngine templateEngine) {
+//		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+//
+//		viewResolver.setTemplateEngine(templateEngine);
+//		return viewResolver;
+//	}
 	
-	
-
-
-	//@Bean
-	//public BasicDataSource dataSource() {
-		//BasicDataSource dataSource = new BasicDataSource();
-
-		//dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		//dataSource.setUrl("jdbc:mysql://localhost:3306/tetris");
-		//dataSource.setUsername("root");
-//		dataSource.setPassword("");
-	//	dataSource.setMaxTotal(10);
-
-		//return dataSource;
-	//}
-
-	//@Bean
-	//public LocalContainerEntityManagerFactoryBean entityManagerFactory(BasicDataSource dataSource) {
-		//LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
-		//JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-
+//	@Bean
+//	public BasicDataSource dataSource() {
+//		BasicDataSource dataSource = new BasicDataSource();
+//
+//		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+//		dataSource.setUrl("jdbc:mysql://localhost:3306/mysql1");
+//		dataSource.setUsername("root");
+//		dataSource.setPassword("test");
+//		dataSource.setMaxTotal(10);
+//
+//		return dataSource;
+//	}
+//
+//	@Bean
+//	public LocalContainerEntityManagerFactoryBean entityManagerFactory(BasicDataSource dataSource) {
+//		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
+//		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+//
 //		emf.setDataSource(dataSource);
-//		emf.setPackagesToScan("projet.lafactory.model");
-	//	emf.setJpaVendorAdapter(vendorAdapter);
-		//emf.setJpaProperties(this.hibernateProperties());
+//		emf.setPackagesToScan("projet.lafactory.model", "projet.lafactory.origami");
+//		emf.setJpaVendorAdapter(vendorAdapter);
+//		emf.setJpaProperties(this.hibernateProperties());
+//
+//		return emf;
+//	}
 
-		//re/turn emf;
-	//}
-
-	//private Properties hibernateProperties() {
+//	private Properties hibernateProperties() {
 //		Properties properties = new Properties();
-
-		//properties.setProperty("hibernate.hbm2ddl.auto", "update");
-		//properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
-		//properties.setProperty("hibernate.show_sql", "true");
+//
+//		properties.setProperty("hibernate.hbm2ddl.auto", "update");
+//		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
+//		properties.setProperty("hibernate.show_sql", "true");
 //		properties.setProperty("hibernate.format_sql", "false");
-
+//
 //		return properties;
-	//}
-
-	//@Bean
-	//public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
-		//JpaTransactionManager transactionManager = new JpaTransactionManager();
-
-		//transactionManager.setEntityManagerFactory(emf);
-		//return transactionManager;
-	//}
+//	}
+//
+//	@Bean
+//	public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
+//		JpaTransactionManager transactionManager = new JpaTransactionManager();
+//
+//		transactionManager.setEntityManagerFactory(emf);
+//		return transactionManager;
+//	}
 }
