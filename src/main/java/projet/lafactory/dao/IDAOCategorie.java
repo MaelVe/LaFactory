@@ -5,8 +5,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import projet.lafactory.model.Admin;
+import projet.lafactory.origami.Categorie;
+import projet.lafactory.origami.Commentaire;
 
-public interface IDAOAdmin extends JpaRepository<Admin, Integer> {
-	@Query("select a from Admin a where a.mail = :mail and a.password = :password")
-	public Admin auth(@Param("mail") String mail, @Param("password") String password);
+public interface IDAOCategorie extends JpaRepository<Categorie, Integer> {
+	//@Query("Select * from categorie where ")
+	//public void findSubCategories();
 }

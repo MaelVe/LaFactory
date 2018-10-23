@@ -8,20 +8,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
-//@Entity
-//@Table(name="admin")
+@Entity
+@Table(name="commentaire")
 public class Commentaire {
 
-//	@Id
-//	@GeneratedValue(strategy=GenerationType.IDENTITY)
-//	@Column(name="id")
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;
 	
-//	@Column(name="content", length=500, nullable=false)
-//	@NotEmpty
+	@Column(name="content", length=500, nullable=false)
+	@NotEmpty
 	private String content;
 	
-//	@Column(name="pseudo", length=500, nullable=false)
-//	@NotEmpty
+	@Column(name="pseudo", length=500, nullable=false)
+	@NotEmpty
 	private String pseudo;
 }
