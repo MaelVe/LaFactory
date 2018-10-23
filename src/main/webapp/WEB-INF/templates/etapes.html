@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Origami</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Voici les étapes pour chaque origami</h1>
+		<tbody>
+			<tr th:each="etape : ${ etapes }">			
+				  <td>[[${ etape.content }]]</td>	
+			</tr>
+		</tbody>
+	</div>
+</body>
+</html>

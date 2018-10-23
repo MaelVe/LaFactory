@@ -15,13 +15,15 @@ public class Etape {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
-	private int id;
+	public int id;
 	
 	@Column(name="content", length=500, nullable=false)
 	@NotEmpty
-	private String content;
+	public String content;
 	
 	@Column(name="numEtape", nullable=false)
 	@NotEmpty
-	private int numEtape;
+	public int numEtape;
+	
+	public int origami_etapes_id;
 }
