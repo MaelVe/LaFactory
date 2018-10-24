@@ -24,11 +24,7 @@ public class LoginController {
 	private IDAOAdmin daoAdmin;
 	
 	@GetMapping
-	public String login(HttpSession session) {
-		if (session.getAttribute("utilisateur") == null) {
-			return "login";
-		}
-		
+	public String login(HttpSession session) {		
 		return "login";
 	}
 	

@@ -13,10 +13,3 @@ public interface IDAOOrigami extends JpaRepository<Origami, Integer> {
 			+ "join e.categories c where c.id = :id")
 	public Iterable<Origami> findByCategorieId(@Param("id") long id);
 }
-
-
-// select og from Origami og JOIN origami_categorie ogCat ON ogCat.origami_id = og.id LEFT JOIN Categorie cat on (cat.id = :id)
-// select og, (select ogCat, (select cat from Categorie cat where cat.id = :id)  from origami_categorie where ogCat.origami_id = og.id) from Origami og
-// select og from Origami og JOIN origami_categorie ogCat where ogCat.origami_id = og.id JOIN Categorie cat on cat.id = :id
-// select og from Origami og inner join ogCat from origami_categorie ogCat  where ogCat.origami_id = :id
-// Select e from Origami e inner join origami_categorie c where c.origami_id = :id

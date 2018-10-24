@@ -21,13 +21,7 @@ public class HomeController {
 		model.addAttribute("categories", this.daoCategorie.findAll());
 		//model.addAttribute("sousCcategories", this.daoCategorie.findSubCategories());;	
 		return "home";
-	}	
-	
-	@GetMapping("/logout")
-	public String logout(HttpSession session) {
-		session.invalidate();
-		return "redirect:home";
-	}	
+	}
 	
 	@ModelAttribute("isPageHomeActive")
 	public boolean isPageHomeActive() {

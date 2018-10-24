@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
-<title>Origamis</title>
+<title>Suppression d'origami</title>
 </head>
 <div th:replace="navigation::nav"></div>
-
 <body>
 	<div class="container">
-		<h1>Origamis</h1>
-		<p>Voici tous les origamis de cette catégorie :</p>
+	<h1>Cliquez sur un bouton pour supprimer un origami :</h1><br/>
 		<tbody>
 			<tr th:each="origami : ${ origamis }">
-			<td><a th:href="@{etapes(id=${ origami.id })}">[[${ origami.nom }]]</a></td>
+				<td><a class="btn btn-danger" th:href="@{'/deleteOrigami/' + ${origami.id}}"
+					role="button">Supprimer : [[${ origami.nom }]]</a></td>
 			</tr>
 		</tbody>
 	</div>

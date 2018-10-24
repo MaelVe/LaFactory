@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
 <title>Origami</title>
 </head>
+<div th:replace="navigation::nav"></div>
 <body>
 	<div class="container">
-		<h1>Voici les �tapes pour chaque origami</h1>
+		<h1 class="text-primary">Voici les étapes pour chaque origami</h1><br/>
 		<tbody>
-			<tr th:each="etape : ${ etapes }">			
-				  <td>[[${ etape.content }]]</td>	
+			<tr th:each="etape : ${ etapes }">
+			<h3 class=".text-info">Voici l'étape [[${ etape.numEtape }]] :</h3>
+				  <td>[[${ etape.content }]]</td>	<br/>
 			</tr>
 		</tbody>
 	</div>

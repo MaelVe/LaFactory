@@ -3,6 +3,7 @@ package projet.lafactory.origami;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,11 +28,11 @@ public class Categorie {
 	@NotEmpty
 	public String nomCategorie;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="origami_sousCategorie_id")
 	public List<Categorie> sousCategorie;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
 			name = "Origami_Categorie",
 			joinColumns = @JoinColumn(name = "id_categorie"),

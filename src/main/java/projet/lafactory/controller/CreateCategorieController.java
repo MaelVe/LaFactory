@@ -7,15 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/administration")
-public class AdministrationController {
+@RequestMapping("/createCategorie")
+public class CreateCategorieController {
 
 	@GetMapping()
-	public String administration(HttpSession session) {	
+	public String get(HttpSession session) {	
 //		if (session.getAttribute("utilisateur") == null) {
 //			return "redirect:login";
 //		}
 		
-		return "administration";
+		return "createCategorie";
 	}
+	
 }

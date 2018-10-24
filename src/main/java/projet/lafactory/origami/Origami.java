@@ -3,6 +3,7 @@ package projet.lafactory.origami;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -53,11 +54,11 @@ public class Origami {
 	@NotEmpty
 	public Difficulte difficulte;
 	
-	@ManyToMany(mappedBy="origamis")
+	@ManyToMany(mappedBy="origamis", cascade = CascadeType.ALL)
 	//@JoinColumn(name="origami_categorie_id")
 	public List<Categorie> categories;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="origami_etapes_id")
 	public List<Etape> etapes;
 }
