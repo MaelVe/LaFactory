@@ -30,34 +30,34 @@ public class Origami {
 	
 	@Column(name="tpsrea", nullable=false)
 	@NotEmpty
-	private float tpsDeRea;	
+	public float tpsDeRea;	
 	
 	@Column(name="nbFeuille", nullable=false)
 	@NotEmpty
-	private int nbFeuille;
+	public int nbFeuille;
 	
 	
 	@Column(name="note", nullable=false)
 	@NotEmpty
-	private int note;
+	public int note;
 	
 	@Column(name="activate", nullable=false)
 	@NotEmpty
-	private Boolean activate;
+	public Boolean activate;
 	
 	@Column(name="nbVue", nullable=false)
 	@NotEmpty
-	private int nbVue;
+	public int nbVue;
 	
 	@Column(name="difficulte", nullable=false)
 	@NotEmpty
-	private Difficulte difficulte;
+	public Difficulte difficulte;
 	
-	@ManyToMany
-	@JoinColumn(name="origami_categorie_id")
-	private List<Categorie> categories;
+	@ManyToMany(mappedBy="origamis")
+	//@JoinColumn(name="origami_categorie_id")
+	public List<Categorie> categories;
 	
 	@OneToMany
 	@JoinColumn(name="origami_etapes_id")
-	private List<Etape> etapes;
+	public List<Etape> etapes;
 }

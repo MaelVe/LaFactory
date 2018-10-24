@@ -31,4 +31,12 @@ public class Categorie {
 	@JoinColumn(name="origami_sousCategorie_id")
 	public List<Categorie> sousCategorie;
 	
+	@ManyToMany
+	@JoinTable(
+			name = "Origami_Categorie",
+			joinColumns = @JoinColumn(name = "id_categorie"),
+			inverseJoinColumns = @JoinColumn(name = "id_origami")
+			)
+	public List<Origami> origamis;
+	
 }

@@ -25,7 +25,7 @@ public class OrigamisController {
 	private IDAOOrigami daoOrigami;
 	
 	@GetMapping()
-	public String get(@RequestParam int id, Model model) {
+	public String get(@RequestParam long id, Model model) {
 		//model.addAttribute("origamis", this.daoOrigami.findById(id).get());
 		model.addAttribute("origamis", this.daoOrigami.findByCategorieId(id));
 		return "origamis";
