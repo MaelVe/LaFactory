@@ -29,33 +29,107 @@ public class Origami {
 	@NotEmpty
 	public String nom;
 	
-	@Column(name="tpsrea", nullable=false)
-	@NotEmpty
-	public float tpsDeRea;	
+	@Column(name="tpsDeRea", nullable=false)
+	public int tpsDeRea;	
 	
 	@Column(name="nbFeuille", nullable=false)
-	@NotEmpty
 	public int nbFeuille;
 	
 	
 	@Column(name="note", nullable=false)
-	@NotEmpty
 	public int note;
 	
 	@Column(name="activate", nullable=false)
-	@NotEmpty
 	public Boolean activate;
 	
 	@Column(name="nbVue", nullable=false)
-	@NotEmpty
 	public int nbVue;
 	
-	@Column(name="difficulte", nullable=false)
+	@Column(name="difficulte", length=200, nullable=false)
 	@NotEmpty
-	public Difficulte difficulte;
+	public String difficulte;
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public float getTpsDeRea() {
+		return tpsDeRea;
+	}
+
+	public void setTpsDeRea(int tpsDeRea) {
+		this.tpsDeRea = tpsDeRea;
+	}
+
+	public int getNbFeuille() {
+		return nbFeuille;
+	}
+
+	public void setNbFeuille(int nbFeuille) {
+		this.nbFeuille = nbFeuille;
+	}
+
+	public int getNote() {
+		return note;
+	}
+
+	public void setNote(int note) {
+		this.note = note;
+	}
+
+	public Boolean getActivate() {
+		return activate;
+	}
+
+	public void setActivate(Boolean activate) {
+		this.activate = activate;
+	}
+
+	public int getNbVue() {
+		return nbVue;
+	}
+
+	public void setNbVue(int nbVue) {
+		this.nbVue = nbVue;
+	}
+
+	public String getDifficulte() {
+		return difficulte;
+	}
+
+	public void setDifficulte(String difficulte) {
+		this.difficulte = difficulte;
+	}
+
+	public List<Categorie> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Categorie> categories) {
+		this.categories = categories;
+	}
+
+	public List<Etape> getEtapes() {
+		return etapes;
+	}
+
+	public void setEtapes(List<Etape> etapes) {
+		this.etapes = etapes;
+	}
+
 	@ManyToMany(mappedBy="origamis", cascade = CascadeType.ALL)
-	//@JoinColumn(name="origami_categorie_id")
 	public List<Categorie> categories;
 	
 	@OneToMany(cascade = CascadeType.ALL)

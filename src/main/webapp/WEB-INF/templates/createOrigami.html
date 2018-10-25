@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+<title>Création d'un origami</title>
 <meta charset="UTF-8" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
-<title>Création d'un origami</title>
 </head>
 <div th:replace="navigation::nav"></div>
 <body>
 	<div class="container">
-		<h1>Création d'un origami :</h1><br/>
+		<h1>Création d'un origami :</h1>
+		<br />
 		<form method="POST">
 			<div class="form-group row">
-				<label for="name" class="col-sm-2 col-form-label">Nom de
+				<label for="nom" class="col-sm-2 col-form-label">Nom de
 					l'origami</label>
 				<div>
-					<input type="text" class="form-control" id="name" name="name"
+					<input type="text" class="form-control" id="nom" name="nom"
 						placeholder="Nom de l'origami" required />
 				</div>
 			</div>
@@ -25,7 +26,7 @@
 			<div class="form-group row">
 				<label for="difficulte" class="col-sm-2 col-form-label">Difficulte</label>
 				<div class="form-group col-md-4">
-					<select id="difficulte" class="form-control">
+					<select id="difficulte" class="form-control" name="difficulte">
 						<option selected>Normal</option>
 						<option>Occasionnel</option>
 						<option>Avance</option>
@@ -33,6 +34,22 @@
 					</select>
 				</div>
 			</div>
+
+			<div class="form-group row">
+				<label for="cat" class="col-sm-2 col-form-label">Choix
+					d'une catégorie</label>
+				<div class="form-group col-md-4">
+					<select id="cat" class="form-control" name="cat">
+						<tbody>
+							<tr th:each="categorie : ${ categories }">
+								<option>[[${categorie.nomCategorie }]]</option>
+							</tr>
+						</tbody>
+					</select>
+				</div>
+			</div>
+
+
 
 			<div class="form-group row">
 				<label for="nbFeuille" class="col-sm-2 col-form-label">Nombre
@@ -46,18 +63,18 @@
 
 
 			<div class="form-group row">
-				<label for="tpsRea" class="col-sm-2 col-form-label">Temps de
+				<label for="tpsDeRea" class="col-sm-2 col-form-label">Temps de
 					réalisation :</label>
 				<div>
-					<input type="text" class="form-control" id="tpsRea" name="tpsRea"
+					<input type="text" class="form-control" id="tpsDeRea" name="tpsDeRea"
 						placeholder="Temps de réalisation" required />
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<div>
-					<button type="button" class="btn btn-primary">Rajout d'une étape</button>
-					<button type="button" class="btn btn-danger">Fin</button>
+					<button type="submit" class="btn btn-primary">Rajout d'une étape</button>
+					<a href="home.html" class="btn btn-danger" role="button">Fin</a>
 				</div>
 			</div>
 		</form>

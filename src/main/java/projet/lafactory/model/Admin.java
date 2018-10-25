@@ -60,11 +60,6 @@ public class Admin{
 		public void setPassword(String password) {
 			this.password = password;
 		}
-
-		public void creationAdmin() {
-			this.setMail("admin@admin.fr");
-			this.setPassword("password");
-		}
 		
 		public String getPassword() {
 			return password;

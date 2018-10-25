@@ -40,14 +40,7 @@ public class DeleteOrigamiController {
 	public String delete(@PathVariable(value="id") int id) {	
 //		if (session.getAttribute("utilisateur") == null) {
 //			return "redirect:login";
-//		}
-		
-		// On supprime d'ab
-//		Iterable<Etape> e = this.daoEtape.findByOrigamiId(id);
-//		
-//		for (Etape etape : e) {
-//			this.daoEtape.deleteById(etape.id);
-//		}
+//		}		
 		
 		this.daoOrigami.deleteById(id);
 		
