@@ -1,0 +1,26 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Boite à idée</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+
+<div th:replace="navigation::nav"></div>
+
+<body>
+	<div class="container">
+		<h1>Consultation des idées</h1>
+		<p>Voici les différentes idées :</p>
+		<tbody>
+			<tr th:each="idee : ${ idees }">			
+				 <td>Son email : [[${ idee.mail }]]</td><br/>		
+				 <td>Son idée : [[${ idee.idee }]]</td><br/>		
+			</tr>
+		</tbody>
+	</div>
+</body>
+</html>

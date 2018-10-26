@@ -12,19 +12,25 @@
 <body>
 	<div class="container">
 	<h1>Quelle est votre idée ?</h1><br/>
-		<form method="POST">					
-			<div class="form-group row">
-				<label for="content" class="col-sm-2 col-form-label">Votre contenu :</label>
+		<form method="POST">		
+		<div class="form-group row">
+				<label for="mail" class="col-sm-2 col-form-label">Votre mail :</label>
 				<div class="col-sm-10">
-				<textarea type="text" class="form-control" id="content" name="content"
+				<input type="text" class="form-control" id="mail" name="mail"
+						placeholder="Votre contenu ici" required ></input>
+				</div>
+			</div>			
+			<div class="form-group row">
+				<label for="idee" class="col-sm-2 col-form-label">Votre idée :</label>
+				<div class="col-sm-10">
+				<textarea type="text" class="form-control" id="idee" name="idee"
 						placeholder="Votre contenu ici" required></textarea>
 				</div>
 			</div>
 			
 			<div class="form-group row">
 				<div class="col-sm-10">
-					<button type="submit" class="btn btn-primary">Rajout d'une
-						étape</button>
+					<button type="submit" class="btn btn-primary">Soumettre mon idée</button>
 				</div>
 			</div>			
 		</form>

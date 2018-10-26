@@ -9,8 +9,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name="boiteAidee")
-public class BoiteAIdee {
+@Table(name="boiteaidee")
+public class BoiteAidee {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

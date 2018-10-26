@@ -37,9 +37,9 @@
 
 			<div class="form-group row">
 				<label for="liaisonCatOrg" class="col-sm-2 col-form-label">Choix
-					d'une catégorie</label>
+					d'une catégorie (maintenez controle pour en choisir plusieurs)</label>
 				<div class="form-group col-md-4">
-					<select id="liaisonCatOrg" class="form-control"
+					<select multiple id="liaisonCatOrg" class="form-control"
 						name="liaisonCatOrg">
 						<tbody>
 							<tr th:each="categorie : ${ categories }">
@@ -70,6 +70,19 @@
 						name="tpsDeRea" placeholder="Temps de réalisation" required />
 				</div>
 			</div>
+			
+			
+			
+			<div class="form-group row">
+				<label for="activate" class="col-sm-2 col-form-label">Activé :</label>
+				<div class="form-group col-md-4">
+					<select id="activate" class="form-control" name="activate">
+						<option>true</option>
+						<option>false</option>
+					</select>
+				</div>
+			</div>
+			
 
 			<div class="form-group row">
 				<div>

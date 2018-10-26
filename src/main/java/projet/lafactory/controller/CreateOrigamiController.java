@@ -44,27 +44,36 @@ public class CreateOrigamiController {
 	public String post(@ModelAttribute Origami origami, HttpServletRequest session, Model model) {	
 //		if (session.getAttribute("utilisateur") == null) {
 //			return "redirect:login";
-//		}
-		
-		origami.activate =true;
+//		}		
 		origami.note = 0;
 		origami.nbVue = 0;		
 		
 		Origami org = this.daoOrigami.saveAndFlush(origami);	
+		String[] multipleCategorie = origami.liaisonCatOrg.split(",");
 		
-		String[] id = origami.liaisonCatOrg.split(":");
+		
+		
+		for (String cat : multipleCategorie) {
+			String[] id = cat.split(":");
+			int i = Integer.parseInt(id[0].trim());
+			
+			Origami_categorie oc = new Origami_categorie();
+			// Je ne sais pas trop pourquoi la BDD de données à crée 4 champs alors que j'en ai créé que deux
+			oc.categories_id = i;
+			oc.origami_id = org.id;
+			oc.id_categorie = i;
+			oc.id_origami = org.id;
+			
+			this.daoOrigamiCategorie.saveAndFlush(oc);
+		}
+		
+		
 		 
 				
-		Origami_categorie oc = new Origami_categorie();
-		int i = Integer.parseInt(id[0].trim());
 		
-		// Je ne sais pas trop pourquoi la BDD de données à crée 4 champs alors que j'en ai créé que deux
-		oc.categories_id = i;
-		oc.origami_id = org.id;
-		oc.id_categorie = i;
-		oc.id_origami = org.id;
 		
-		this.daoOrigamiCategorie.saveAndFlush(oc);
+		
+	
 		return "redirect:createEtape/"+org.id+"/1";
 	}
 }

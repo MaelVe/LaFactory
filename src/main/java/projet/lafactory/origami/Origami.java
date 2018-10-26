@@ -53,8 +53,7 @@ public class Origami {
 	@ManyToMany(mappedBy="origamis", cascade = CascadeType.ALL)
 	public List<Categorie> categories;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="origami_etapes_id")
+	@ManyToMany(mappedBy="origamis",cascade = CascadeType.ALL)
 	public List<Etape> etapes;
 	
 	public String liaisonCatOrg;
