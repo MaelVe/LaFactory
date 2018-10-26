@@ -49,6 +49,25 @@ public class Origami {
 	@NotEmpty
 	public String difficulte;
 	
+
+	@ManyToMany(mappedBy="origamis", cascade = CascadeType.ALL)
+	public List<Categorie> categories;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="origami_etapes_id")
+	public List<Etape> etapes;
+	
+	public String liaisonCatOrg;
+	
+
+	public String getLiaisonCatOrg() {
+		return liaisonCatOrg;
+	}
+
+	public void setLiaisonCatOrg(String liaisonCatOrg) {
+		this.liaisonCatOrg = liaisonCatOrg;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -128,11 +147,4 @@ public class Origami {
 	public void setEtapes(List<Etape> etapes) {
 		this.etapes = etapes;
 	}
-
-	@ManyToMany(mappedBy="origamis", cascade = CascadeType.ALL)
-	public List<Categorie> categories;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="origami_etapes_id")
-	public List<Etape> etapes;
 }

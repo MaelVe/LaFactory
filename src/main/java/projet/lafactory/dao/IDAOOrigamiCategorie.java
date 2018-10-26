@@ -5,10 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import projet.lafactory.origami.Etape;
+import projet.lafactory.origami.Origami_categorie;
 
-public interface IDAOEtapes extends JpaRepository<Etape, Integer> {
-	
-	@Query("Select e from Etape e where e.origami_etapes_id = :id order by e.numEtape ASC")
-	public Iterable<Etape> findByOrigamiId(@Param("id") int id);
-
+public interface IDAOOrigamiCategorie extends JpaRepository<Origami_categorie, Integer> {	
 }

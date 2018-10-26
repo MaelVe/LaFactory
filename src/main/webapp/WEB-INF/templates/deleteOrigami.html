@@ -15,7 +15,7 @@
 		<tbody>
 			<tr th:each="origami : ${ origamis }">
 				<td><a class="btn btn-danger" th:href="@{'/deleteOrigami/' + ${origami.id}}"
-					role="button">Supprimer : [[${ origami.nom }]]</a></td>
+					role="button">Supprimer : [[${ origami.nom }]]</a></td><br/><br/>
 			</tr>
 		</tbody>
 	</div>

@@ -1,25 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+<title>Création d'une etape</title>
 <meta charset="utf-8">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
-<title>Création d'une étape</title>
 </head>
+<div th:replace="navigation::nav"></div>
 <body>
 	<div class="container">
 	<h1>Création d'une étape</h1><br/>
-		<form method="POST">
+		<form method="POST">					
 			<div class="form-group row">
-				<label for="content" class="col-sm-2 col-form-label">Contenu</label>
-				<div>
-				<textarea class="form-control"  id="content" name="content" required></textarea>
+				<label for="content" class="col-sm-2 col-form-label">Votre contenu :</label>
+				<div class="col-sm-10">
+				<textarea type="text" class="form-control" id="content" name="content"
+						placeholder="Votre contenu ici" required></textarea>
 				</div>
 			</div>
-			<a href="createEtape.html" class="btn btn-primary" role="button">Rajout d'une étape</a> 
-			<a href="home.html" class="btn btn-danger" role="button">Fin</a>
+			
+			<div class="form-group row">
+				<div class="col-sm-10">
+					<button type="submit" class="btn btn-primary">Rajout d'une
+						étape</button>
+					<a href="../home.html" class="btn btn-danger" role="button">Fin</a>
+				</div>
+			</div>
+			
+			
 		</form>
 	</div>
 </body>

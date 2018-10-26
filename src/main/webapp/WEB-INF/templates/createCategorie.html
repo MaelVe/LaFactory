@@ -22,14 +22,15 @@
 				</div>
 			</div>
 			<div class="form-group row">
-				<label for="sousCat" class="col-sm-2 col-form-label">Choix
-					d'une catégorie supérieur</label>
+				<label for="cat" class="col-sm-2 col-form-label">Choix
+					d'une catégorie</label>
 				<div class="form-group col-md-4">
-					<select id="sousCat" class="form-control">					
-						<option selected>CatCodéEnDur1</option>
-						<option>CatCodéEnDur2</option>
-						<option>CatCodéEnDur3</option>
-						<option>CatCodéEnDur4</option>
+					<select id="cat" class="form-control" name="cat">
+						<tbody>
+							<tr th:each="categorie : ${ categories }">
+								<option>[[${categorie.nomCategorie }]]</option>
+							</tr>
+						</tbody>
 					</select>
 				</div>
 			</div>

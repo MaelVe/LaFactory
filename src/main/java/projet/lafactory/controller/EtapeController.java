@@ -19,9 +19,13 @@ public class EtapeController {
 	@Autowired
 	private IDAOEtapes daoEtape;
 	
+	@Autowired
+	private IDAOOrigami daoOrigami;
+	
 	@GetMapping()
 	public String get(@RequestParam int id, Model model) {
 		//model.addAttribute("etapes", this.daoEtape.findById(id).get());
+		model.addAttribute("origami", this.daoOrigami.findById(id).get());
 		model.addAttribute("etapes", this.daoEtape.findByOrigamiId(id));
 		return "etapes";
 	}

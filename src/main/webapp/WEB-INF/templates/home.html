@@ -17,7 +17,7 @@
 		<p>Voici les différentes catégories d'origami :</p>
 		<tbody>
 			<tr th:each="categorie : ${ categories }">			
-				 <td><a th:href="@{origamis(id=${ categorie.id })}">[[${ categorie.nomCategorie }]]</a></td>		
+				 <td><a th:href="@{origamis(id=${ categorie.id })}">[[${ categorie.nomCategorie }]]</a></td><br/>		
 			</tr>
 		</tbody>
 	</div>

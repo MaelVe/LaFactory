@@ -11,11 +11,17 @@
 <div th:replace="navigation::nav"></div>
 <body>
 	<div class="container">
-		<h1 class="text-primary">Voici les étapes pour chaque origami</h1><br/>
+		<h1 class="text-primary">Voici les étapes pour cette origami</h1>
+		<br />
+		<p>Temps de réalisation : [[${origami.tpsDeRea}]] minute(s)</p>
+		<p>Difficulté : [[${origami.difficulte}]]</p>
+		<p>Nombre de feuille nécessaire :  [[${origami.nbFeuille}]] feuille(s)</p>
+		<p>Note :  [[${origami.note}]]</p>
 		<tbody>
 			<tr th:each="etape : ${ etapes }">
-			<h3 class=".text-info">Voici l'étape [[${ etape.numEtape }]] :</h3>
-				  <td>[[${ etape.content }]]</td>	<br/>
+				<h3 class=".text-info">Voici l'étape [[${ etape.numEtape }]] :</h3>
+				<td>[[${ etape.content }]]</td>
+				<br />
 			</tr>
 		</tbody>
 	</div>

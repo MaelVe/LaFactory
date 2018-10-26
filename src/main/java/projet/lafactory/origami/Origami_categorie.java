@@ -17,4 +17,6 @@ public class Origami_categorie {
 	
 	public int origami_id;
 	public int categories_id;
+	public int id_categorie;
+	public int id_origami;
 }

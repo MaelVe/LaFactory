@@ -42,11 +42,7 @@ public class DeleteOrigamiController {
 //			return "redirect:login";
 //		}		
 		
-		this.daoOrigami.deleteById(id);
-		
-
-		
-		
-		return "deleteOrigami";
+		this.daoOrigami.deleteById(id);		
+		return "redirect:.";
 	}
 }

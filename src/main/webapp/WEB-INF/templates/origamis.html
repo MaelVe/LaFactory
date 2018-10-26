@@ -16,7 +16,7 @@
 		<p>Voici tous les origamis de cette catégorie :</p>
 		<tbody>
 			<tr th:each="origami : ${ origamis }">
-			<td><a th:href="@{etapes(id=${ origami.id })}">[[${ origami.nom }]]</a></td>
+			<td><a th:href="@{etapes(id=${ origami.id })}">[[${ origami.nom }]]</a></td><br/>
 			</tr>
 		</tbody>
 	</div>
