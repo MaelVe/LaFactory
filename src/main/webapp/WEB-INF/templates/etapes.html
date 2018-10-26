@@ -15,8 +15,9 @@
 		<br />
 		<p>Temps de réalisation : [[${origami.tpsDeRea}]] minute(s)</p>
 		<p>Difficulté : [[${origami.difficulte}]]</p>
-		<p>Nombre de feuille nécessaire :  [[${origami.nbFeuille}]] feuille(s)</p>
-		<p>Note :  [[${origami.note}]]</p>
+		<p>Nombre de feuille nécessaire : [[${origami.nbFeuille}]]
+			feuille(s)</p>
+		<p>Note : [[${origami.note}]]</p>
 		<tbody>
 			<tr th:each="etape : ${ etapes }">
 				<h3 class=".text-info">Voici l'étape [[${ etape.numEtape }]] :</h3>
@@ -24,6 +25,42 @@
 				<br />
 			</tr>
 		</tbody>
+		<br />
+		<h1 class="text-primary">Voici les commentaires pour cette
+			origami :</h1>
+			<tbody>
+			<tr th:each="commentaire : ${ commentaires }">
+				<h3 class=".text-info">Commentaire de "[[${ commentaire.pseudo }]]" :</h3>
+				<td>[[${ commentaire.content }]]</td>
+				<br />
+			</tr>
+		</tbody>
+		<br/>
+	<h1 class="text-primary">Création d'un commentaire</h1>
+		<form method="POST">	
+		
+		<div class="form-group row">
+				<label for="pseudo" class="col-sm-2 col-form-label">Votre pseudo :</label>
+				<div class="col-sm-10">
+				<input type="text" class="form-control" id="pseudo" name="pseudo"
+						placeholder="Votre pseudo ici" required></textarea>
+				</div>
+			</div>			
+				
+			<div class="form-group row">
+				<label for="content" class="col-sm-2 col-form-label">Votre contenu :</label>
+				<div class="col-sm-10">
+				<textarea type="text" class="form-control" id="content" name="content"
+						placeholder="Votre contenu ici" required></textarea>
+				</div>
+			</div>
+			
+			<div class="form-group row">
+				<div class="col-sm-10">
+					<button type="submit" class="btn btn-primary">Rajout d'un commentaire</button>
+				</div>
+			</div>			
+		</form>
 	</div>
 </body>
 </html>

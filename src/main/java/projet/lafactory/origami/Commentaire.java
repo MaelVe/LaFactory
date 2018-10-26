@@ -15,13 +15,40 @@ public class Commentaire {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
-	private int id;
+	public int id;
 	
 	@Column(name="content", length=500, nullable=false)
 	@NotEmpty
-	private String content;
+	public String content;
 	
 	@Column(name="pseudo", length=500, nullable=false)
 	@NotEmpty
-	private String pseudo;
+	public String pseudo;
+	
+	@Column(name="idOrigami", nullable=false)
+	public int idOrigami;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getPseudo() {
+		return pseudo;
+	}
+
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
+	}
 }

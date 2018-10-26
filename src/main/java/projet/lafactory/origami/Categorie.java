@@ -27,7 +27,7 @@ public class Categorie {
 	@Column(name="nomCategorie", length=200, nullable=false)
 	@NotEmpty
 	public String nomCategorie;
-	
+
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="origami_sousCategorie_id")
 	public List<Categorie> sousCategorie;
@@ -39,5 +39,37 @@ public class Categorie {
 			inverseJoinColumns = @JoinColumn(name = "id_origami")
 			)
 	public List<Origami> origamis;
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getNomCategorie() {
+		return nomCategorie;
+	}
+
+	public void setNomCategorie(String nomCategorie) {
+		this.nomCategorie = nomCategorie;
+	}
+
+	public List<Categorie> getSousCategorie() {
+		return sousCategorie;
+	}
+
+	public void setSousCategorie(List<Categorie> sousCategorie) {
+		this.sousCategorie = sousCategorie;
+	}
+
+	public List<Origami> getOrigamis() {
+		return origamis;
+	}
+
+	public void setOrigamis(List<Origami> origamis) {
+		this.origamis = origamis;
+	}
 	
 }
