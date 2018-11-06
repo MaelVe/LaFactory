@@ -20,9 +20,9 @@ public class ConsultIdeeController {
 	
 	@GetMapping()
 	public String get(HttpSession session, Model model) {	
-//		if (session.getAttribute("utilisateur") == null) {
-//			return "redirect:login";
-//		}
+		if (session.getAttribute("utilisateur") == null) {
+			return "redirect:login";
+		}
 		model.addAttribute("idees", this.daoBoiteAidee.findAll());
 		return "consultIdee";
 	}

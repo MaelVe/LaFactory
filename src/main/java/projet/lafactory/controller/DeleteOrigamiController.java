@@ -27,9 +27,9 @@ public class DeleteOrigamiController {
 	
 	@GetMapping()
 	public String get(HttpSession session, Model model) {	
-//		if (session.getAttribute("utilisateur") == null) {
-//			return "redirect:login";
-//		}
+		if (session.getAttribute("utilisateur") == null) {
+			return "redirect:login";
+		}
 		
 		model.addAttribute("origamis", this.daoOrigami.findAll());
 		
@@ -37,10 +37,10 @@ public class DeleteOrigamiController {
 	}
 	
 	@RequestMapping("/{id}")
-	public String delete(@PathVariable(value="id") int id) {	
-//		if (session.getAttribute("utilisateur") == null) {
-//			return "redirect:login";
-//		}		
+	public String delete(HttpSession session, @PathVariable(value="id") int id) {	
+		if (session.getAttribute("utilisateur") == null) {
+			return "redirect:login";
+		}		
 		
 		// Je supprime d'abord les étapes 
 		this.daoEtape.deleteAllByOrigamiId(id);

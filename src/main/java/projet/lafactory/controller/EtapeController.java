@@ -45,10 +45,8 @@ public class EtapeController {
 	}
 	
 	@PostMapping()
-	public String etape(@ModelAttribute Commentaire commentaire, HttpServletRequest session, Model model) {	
-//		if (session.getAttribute("utilisateur") == null) {
-//			return "redirect:login";
-//		}
+	public String etape(@ModelAttribute Commentaire commentaire, Model model) {	
+		
 		// Je force à 0 car je le récupère à 1 et du coup il va écraser l'entrée 1 en bdd 
 		commentaire.id = 0;
 		commentaire.idOrigami = this.origamiId;

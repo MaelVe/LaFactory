@@ -32,9 +32,10 @@ public class CreateOrigamiController {
 	
 	@GetMapping()
 	public String get(HttpSession session, Model model) {	
-//		if (session.getAttribute("utilisateur") == null) {
-//			return "redirect:login";
-//		}
+		if (session.getAttribute("utilisateur") == null) {
+			return "redirect:login";
+		}
+		
 		model.addAttribute("categories", this.daoCategorie.findAll());
 		
 		return "createOrigami";
@@ -42,9 +43,10 @@ public class CreateOrigamiController {
 	
 	@PostMapping()
 	public String post(@ModelAttribute Origami origami, HttpServletRequest session, Model model) {	
-//		if (session.getAttribute("utilisateur") == null) {
-//			return "redirect:login";
-//		}		
+		if (session.getAttribute("utilisateur") == null) {
+			return "redirect:login";
+		}	
+		
 		origami.note = 0;
 		origami.nbVue = 0;		
 		
@@ -67,13 +69,6 @@ public class CreateOrigamiController {
 			this.daoOrigamiCategorie.saveAndFlush(oc);
 		}
 		
-		
-		 
-				
-		
-		
-		
-	
 		return "redirect:createEtape/"+org.id+"/1";
 	}
 }

@@ -12,9 +12,9 @@ public class AdministrationController {
 
 	@GetMapping()
 	public String administration(HttpSession session) {	
-//		if (session.getAttribute("utilisateur") == null) {
-//			return "redirect:login";
-//		}
+		if (session.getAttribute("utilisateur") == null) {
+			return "redirect:login";
+		}
 		
 		return "administration";
 	}

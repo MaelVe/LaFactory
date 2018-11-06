@@ -22,18 +22,18 @@ public class CreateCategorieController {
 	
 	@GetMapping()
 	public String get(HttpSession session, Model model) {	
-//		if (session.getAttribute("utilisateur") == null) {
-//			return "redirect:login";
-//		}
+		if (session.getAttribute("utilisateur") == null) {
+			return "redirect:login";
+		}
 		model.addAttribute("categories", this.daoCategorie.findAll());
 		return "createCategorie";
 	}
 	
 	@PostMapping()
-	public String post(@ModelAttribute Categorie categorie, Model model) {	
-//		if (session.getAttribute("utilisateur") == null) {
-//			return "redirect:login";
-//		}
+	public String post(@ModelAttribute Categorie categorie, Model model, HttpSession session) {	
+		if (session.getAttribute("utilisateur") == null) {
+			return "redirect:login";
+		}
 		this.daoCategorie.saveAndFlush(categorie);
 		return "createCategorie";
 	}

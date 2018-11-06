@@ -24,14 +24,18 @@ public class LoginController {
 	private IDAOAdmin daoAdmin;
 	
 	@GetMapping
-	public String login(HttpSession session) {		
-		return "login";
+	public String login(HttpSession session) {	
+		if (session.getAttribute("utilisateur") == null) {
+			return "login";
+		}
+		
+		return "administration";
 	}
 	
 	
 	
 	@PostMapping()
-	public String login(@ModelAttribute Admin admin, HttpServletRequest session, Model model) {
+	public String login(@ModelAttribute Admin admin, HttpSession session, Model model) {
 		admin = this.daoAdmin.auth(admin.getMail(), admin.getPassword());
 		
 		if (admin == null) {
@@ -49,7 +53,7 @@ public class LoginController {
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:home";
+		return "redirect:../home";
 	}	
 	
 	@ModelAttribute("isPageHomeActive")

@@ -29,18 +29,18 @@ public class CreateEtapeController {
 	
 	@GetMapping()
 	public String get(HttpSession session) {	
-//		if (session.getAttribute("utilisateur") == null) {
-//			return "redirect:login";
-//		}
+		if (session.getAttribute("utilisateur") == null) {
+			return "redirect:login";
+		}
 		
 		return "createEtape";
 	}
 	
 	@RequestMapping("/{id}/{numEtape}")
 	public String getWithId(HttpSession session, @PathVariable(value="id") int id, @PathVariable(value="numEtape") int numEtape) {	
-//		if (session.getAttribute("utilisateur") == null) {
-//			return "redirect:login";
-//		}
+		if (session.getAttribute("utilisateur") == null) {
+			return "redirect:login";
+		}
 		this.idOrigami = id;
 		this.numEtape = numEtape;
 		return "redirect:..";
