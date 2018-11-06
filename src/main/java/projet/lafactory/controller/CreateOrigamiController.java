@@ -42,7 +42,7 @@ public class CreateOrigamiController {
 	}
 	
 	@PostMapping()
-	public String post(@ModelAttribute Origami origami, HttpServletRequest session, Model model) {	
+	public String post(@ModelAttribute Origami origami, HttpSession session, Model model) {	
 		if (session.getAttribute("utilisateur") == null) {
 			return "redirect:login";
 		}	
@@ -52,9 +52,7 @@ public class CreateOrigamiController {
 		
 		Origami org = this.daoOrigami.saveAndFlush(origami);	
 		String[] multipleCategorie = origami.liaisonCatOrg.split(",");
-		
-		
-		
+				
 		for (String cat : multipleCategorie) {
 			String[] id = cat.split(":");
 			int i = Integer.parseInt(id[0].trim());

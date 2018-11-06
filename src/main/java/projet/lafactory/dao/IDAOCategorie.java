@@ -11,4 +11,7 @@ import projet.lafactory.origami.Commentaire;
 public interface IDAOCategorie extends JpaRepository<Categorie, Integer> {
 	//@Query("Select * from categorie where ")
 	//public void findSubCategories();
+	
+	@Query("Select a from Categorie a where a.id = :id")
+	public Categorie findByLongId(@Param("id") long id);
 }

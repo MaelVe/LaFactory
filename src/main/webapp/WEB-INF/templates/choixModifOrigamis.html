@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<title>Choix d'origamis</title>
+</head>
+<div th:replace="navigation::nav"></div>
+<body>
+<div class="container">
+<h1>Cliquez sur un bouton pour modifier un origami :</h1><br/>
+		<tbody>
+			<tr th:each="origami : ${ origamis }">
+				<td><a class="btn btn-primary" th:href="@{'choixModifOrigamis/modifierOrigami/' + ${origami.id}}"
+					role="button">Modifier : [[${ origami.nom }]]</a></td><br/><br/>
+			</tr>
+		</tbody>
+</div>
+
+</body>
+</html>

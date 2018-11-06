@@ -41,6 +41,7 @@ public class CreateEtapeController {
 		if (session.getAttribute("utilisateur") == null) {
 			return "redirect:login";
 		}
+		
 		this.idOrigami = id;
 		this.numEtape = numEtape;
 		return "redirect:..";

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<title>Modification de l'origami</title>
+</head>
+<div th:replace="navigation::nav"></div>
+<body>
+	<div class="container">
+		<h1>Modification d'un origami :</h1>
+		<br />
+		<form method="POST">
+			<div class="form-group row">
+				<label for="nom" class="col-sm-2 col-form-label">Modification
+					du nom de l'origami</label>
+				<div>
+					<input type="text" class="form-control" id="nom" name="nom"
+						th:value="${ origami.nom }" required />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="difficulte" class="col-sm-2 col-form-label">Modification
+					de la difficulte</label>
+				<div class="form-group col-md-4">
+					<select id="difficulte" class="form-control" name="difficulte">
+						<option th:selected="${ origami.difficulte } == Normal">Normal</option>
+						<option th:selected="${ origami.difficulte } == Occasionnel">Occasionnel</option>
+						<option th:selected="${ origami.difficulte } == Avance">Avance</option>
+						<option th:selected="${ origami.difficulte } == Expert">Expert</option>
+					</select>
+				</div>
+			</div>
+
+			<h4>Catégorie actuel : [[${ categorieChosen.nomCategorie }]]</h4>
+			<div class="form-group row">
+				<label for="liaisonCatOrg" class="col-sm-2 col-form-label">Choix
+					d'une catégorie (maintenez controle pour en choisir plusieurs)</label>
+				<div class="form-group col-md-4">
+					<select multiple id="liaisonCatOrg" class="form-control"
+						name="liaisonCatOrg">
+						<tbody>
+							<tr th:each="categorie : ${ categories }">
+								<option>[[${categorie.id }]] :
+									[[${categorie.nomCategorie }]]</option>
+							</tr>
+						</tbody>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="nbFeuille" class="col-sm-2 col-form-label">Nombre
+					de feuille A4 nécessaire</label>
+				<div>
+					<input type="text" class="form-control" id="nbFeuille"
+						name="nbFeuille" th:value="${ origami.nbFeuille }" required />
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="tpsDeRea" class="col-sm-2 col-form-label">Temps
+					de réalisation (en minute) :</label>
+				<div>
+					<input type="text" class="form-control" id="tpsDeRea"
+						name="tpsDeRea" th:value="${ origami.tpsDeRea }" required />
+				</div>
+			</div>
+
+
+
+			<div class="form-group row">
+				<label for="activate" class="col-sm-2 col-form-label">Activé
+					:</label>
+				<div class="form-group col-md-4">
+					<select id="activate" class="form-control" name="activate">
+						<option th:selected="${ origami.activate } == 1">true</option>
+						<option th:selected="${ origami.activate } == 0">false</option>
+					</select>
+				</div>
+			</div>
+
+			<h2>Etapes :</h2>
+			<div class="form-group row">
+				<div>
+					<tbody>
+						<tr th:each="etape : ${ etapes }">
+							<p>etape [[${etape.numEtape }]] :</p>
+							<textarea type="text" class="form-control" id="content"
+								name="content" required>[[${etape.content }]]</textarea>
+						</tr>
+					</tbody>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<div>
+				<button type="submit" class="btn btn-primary">Modifier l'origami</button>
+					<a href="home.html" class="btn btn-danger" role="button">Annuler</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
