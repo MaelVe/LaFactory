@@ -48,10 +48,11 @@ public class CreateEtapeController {
 	}
 	
 	@PostMapping()
-	public String etape(@ModelAttribute Etape etape, HttpServletRequest session, Model model) {	
-//		if (session.getAttribute("utilisateur") == null) {
-//			return "redirect:login";
-//		}
+	public String etape(@ModelAttribute Etape etape, HttpSession session, Model model) {	
+		if (session.getAttribute("utilisateur") == null) {
+			return "redirect:login";
+		}
+		
 		etape.origami_etapes_id = this.idOrigami;
 		etape.numEtape = this.numEtape;
 		this.daoEtapes.saveAndFlush(etape);
