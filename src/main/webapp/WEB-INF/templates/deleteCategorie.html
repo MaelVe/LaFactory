@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<title>Suppression d'origami</title>
+</head>
+<div th:replace="navigation::nav"></div>
+<body>
+	<div class="container">
+	<h1>Cliquez sur un bouton pour supprimer une catégorie :</h1><br/>
+	<h1 class="text-danger">ATTENTION, supprimer une catégorie supprimera les origamis dedans !</h1><br/>
+		<tbody>
+			<tr th:each="categorie : ${ categories }">
+				<td><a class="btn btn-danger" th:href="@{'/deleteCategorie/' + ${categorie.id}}"
+					role="button">Supprimer : [[${ categorie.nomCategorie }]]</a></td><br/><br/>
+			</tr>
+		</tbody>
+	</div>
+</body>
+</html>

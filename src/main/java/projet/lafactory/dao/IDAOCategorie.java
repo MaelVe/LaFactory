@@ -14,4 +14,7 @@ public interface IDAOCategorie extends JpaRepository<Categorie, Integer> {
 	
 	@Query("Select a from Categorie a where a.id = :id")
 	public Categorie findByLongId(@Param("id") long id);
+	
+	@Query("Delete a from Categorie a where a.id = :id")
+	public void deleteByLongId(@Param("id") long id);
 }
