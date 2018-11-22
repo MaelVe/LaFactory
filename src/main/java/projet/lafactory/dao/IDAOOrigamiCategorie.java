@@ -1,5 +1,7 @@
 package projet.lafactory.dao;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -13,7 +15,10 @@ import projet.lafactory.origami.Origami_categorie;
 public interface IDAOOrigamiCategorie extends JpaRepository<Origami_categorie, Integer> {	
 
 	@Query("select a from Origami_categorie a where a.id_origami = :id ")
-	public Origami_categorie findIdCategorieByIdOrigami(@Param("id") int id);	
+	public Origami_categorie findIdCategorieByIdOrigami(@Param("id") int id);
+	
+	@Query("select a from Origami_categorie a where a.id_categorie = :id ")
+	public List<Origami_categorie> findAllyIdCategorie(@Param("id") int id);
 	
 	@Transactional
 	@Modifying

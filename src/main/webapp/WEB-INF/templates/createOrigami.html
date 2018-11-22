@@ -26,7 +26,7 @@
 			<div class="form-group row">
 				<label for="difficulte" class="col-sm-2 col-form-label">Difficulte</label>
 				<div class="form-group col-md-4">
-					<select id="difficulte" class="form-control" name="difficulte">
+					<select id="difficulte" class="form-control" name="difficulte" required>
 						<option selected>Normal</option>
 						<option>Occasionnel</option>
 						<option>Avance</option>
@@ -40,7 +40,7 @@
 					d'une catégorie (maintenez controle pour en choisir plusieurs)</label>
 				<div class="form-group col-md-4">
 					<select multiple id="liaisonCatOrg" class="form-control"
-						name="liaisonCatOrg">
+						name="liaisonCatOrg" required>
 						<tbody>
 							<tr th:each="categorie : ${ categories }">
 								<option>[[${categorie.id }]] :

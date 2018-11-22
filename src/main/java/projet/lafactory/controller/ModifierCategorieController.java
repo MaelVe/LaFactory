@@ -1,5 +1,7 @@
 package projet.lafactory.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import projet.lafactory.dao.IDAOCategorie;
+import projet.lafactory.dao.IDAOOrigamiCategorie;
 import projet.lafactory.origami.Categorie;
+import projet.lafactory.origami.Origami_categorie;
 
 @Controller
 @RequestMapping("/choixModifCategories")
@@ -20,6 +24,9 @@ public class ModifierCategorieController {
 
 		@Autowired
 		private IDAOCategorie daoCategorie;
+		
+		@Autowired
+		private IDAOOrigamiCategorie daoOrigamiCategorie;
 
 		@GetMapping()
 		public String get(HttpSession session, Model model) {	
@@ -50,7 +57,14 @@ public class ModifierCategorieController {
 				return "redirect:login";
 			}		
 			
+			List<Origami_categorie> allRelatedCategories = this.daoOrigamiCategorie.findAllyIdCategorie(Math.toIntExact(categorie.id));
+			
 			this.daoCategorie.saveAndFlush(categorie);
-			return "redirect:../home";
+			
+			for(Origami_categorie orc : allRelatedCategories){
+				this.daoOrigamiCategorie.saveAndFlush(orc);
+			}
+			
+			return "redirect:../../home";
 		}
 }
