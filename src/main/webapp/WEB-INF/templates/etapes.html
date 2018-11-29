@@ -13,11 +13,13 @@
 	<div class="container">
 		<h1 class="text-primary">Voici les étapes pour cette origami</h1>
 		<br />
+		
 		<p>Temps de réalisation : [[${origami.tpsDeRea}]] minute(s)</p>
 		<p>Difficulté : [[${origami.difficulte}]]</p>
 		<p>Nombre de feuille nécessaire : [[${origami.nbFeuille}]]
 			feuille(s)</p>
-		<p>Note : [[${origami.note}]]</p>
+		<p>Note : [[${origami.note}]] / 20</p>
+		<p>Nombre de vue : [[${origami.nbVue}]]</p>
 		<tbody>
 			<tr th:each="etape : ${ etapes }">
 				<h3 class=".text-info">Voici l'étape [[${ etape.numEtape }]] :</h3>
@@ -37,8 +39,16 @@
 		</tbody>
 		<br/>
 	<h1 class="text-primary">Création d'un commentaire</h1>
-		<form method="POST">	
-		
+		<form method="POST">
+					
+				<div class="form-group row">
+				<label for="note" class="col-sm-2 col-form-label">Donner une note sur 20 à ce commentaire :</label>
+				<div class="col-sm-10">
+				<textarea type="text" class="form-control" id="note" name="note"
+						placeholder="Votre note ici /20" required></textarea>
+				</div>
+			</div>
+			
 		<div class="form-group row">
 				<label for="pseudo" class="col-sm-2 col-form-label">Votre pseudo :</label>
 				<div class="col-sm-10">
@@ -53,7 +63,7 @@
 				<textarea type="text" class="form-control" id="content" name="content"
 						placeholder="Votre contenu ici" required></textarea>
 				</div>
-			</div>
+			</div>			
 			
 			<div class="form-group row">
 				<div class="col-sm-10">

@@ -17,6 +17,7 @@ import projet.lafactory.dao.IDAOEtapes;
 import projet.lafactory.dao.IDAOOrigami;
 import projet.lafactory.origami.Commentaire;
 import projet.lafactory.origami.Etape;
+import projet.lafactory.origami.Origami;
 
 @Controller
 @RequestMapping("/etapes")
@@ -41,15 +42,26 @@ public class EtapeController {
 		model.addAttribute("commentaires", this.daoCommentaire.findByOrigamiId(id));
 		this.origamiId = id;
 		
+		// On met à jour le nombre de vue
+		Origami org = this.daoOrigami.findById(id).get();
+		org.nbVue += 1;	
+		this.daoOrigami.saveAndFlush(org);
+		
 		return "etapes";
 	}
 	
 	@PostMapping()
-	public String etape(@ModelAttribute Commentaire commentaire, Model model) {	
+	public String etape(@ModelAttribute Commentaire commentaire, @ModelAttribute Origami origami, Model model) {	
 		
 		// Je force à 0 car je le récupère à 1 et du coup il va écraser l'entrée 1 en bdd 
 		commentaire.id = 0;
 		commentaire.idOrigami = this.origamiId;
+		
+		// On fait la moyenne des notes
+		Origami org = this.daoOrigami.findById(this.origamiId).get();
+		org.note = (org.note + origami.note)/2;
+		this.daoOrigami.saveAndFlush(org);
+		
 		this.daoCommentaire.saveAndFlush(commentaire);
 		return "redirect:etapes?id="+this.origamiId;
 	}
